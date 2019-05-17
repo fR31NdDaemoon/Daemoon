@@ -1,0 +1,2 @@
+# Daemoon
+Autoscript test
