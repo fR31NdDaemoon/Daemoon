@@ -38,6 +38,16 @@ chmod +x /usr/bin/screenfetch
 echo "clear" >> .profile
 echo "screenfetch" >> .profile
 
+# Install DDOS Deflate
+cd
+apt-get -y install dnsutils dsniff
+wget "https://github.com/fR31NdDaemoon/Daemoon/master/Tools/ddos-deflate-master.zip"
+unzip ddos-deflate-master.zip
+cd ddos-deflate-master
+./install.sh
+cd
+rm -rf ddos-deflate-master.zip
+
 # install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=442/g' /etc/default/dropbear
@@ -335,17 +345,6 @@ iptables-restore < /etc/iptables.up.rules
 # Configure Nginx
 sed -i 's/\/var\/www\/html;/\/home\/vps\/public_html\/;/g' /etc/nginx/sites-enabled/default
 cp /var/www/html/index.nginx-debian.html /home/vps/public_html/index.html
-
-# Install DDOS Deflate
-cd
-apt-get -y install dnsutils dsniff
-wget "https://github.com/fR31NdDaemoon/Daemoon/master/Tools/ddos-deflate-master.zip"
-unzip ddos-deflate-master.zip
-cd ddos-deflate-master
-./install.sh
-cd
-rm -rf ddos-deflate-master.zip
-
 
 # Create and Configure rc.local
 cat > /etc/rc.local <<-END
