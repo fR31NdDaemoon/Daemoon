@@ -41,13 +41,14 @@ echo "screenfetch" >> .profile
 # Install DDOS Deflate
 cd
 apt-get -y install dnsutils dsniff
-wget "https://github.com/fR31NdDaemoon/Daemoon/master/Tools/ddos-deflate-master.zip"
+wget "https://raw.githubusercontent.com/fR31NdDaemoon/Daemoon/blob/master/Tools/ddos-deflate-master.zip"
 unzip ddos-deflate-master.zip
 cd ddos-deflate-master
 ./install.sh
 cd
-rm -rf ddos-deflate-master.zip
-
+rm -rf ddos-deflate-master
+rm ddos-deflate-master.zip
+cd
 # install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=442/g' /etc/default/dropbear
@@ -57,7 +58,7 @@ echo "/bin/false" >> /etc/shells
 cat > /etc/squid/squid.conf <<-END
 acl url1 url_regex -i 127.0.0.1
 acl url2 url_regex -i localhost
-acl url3 url_regex -i 47.74.185.86
+acl url3 url_regex -i 195.123.237.61
 acl payload url_regex -i “/etc/squid/payload.txt”
 http_access allow url1
 http_access allow url2
@@ -183,7 +184,7 @@ systemctl start openvpn@server
 mkdir -p /home/vps/public_html
 cat > /home/vps/public_html/client.ovpn <<-END
 
-# Created by wang zki
+# fR31Nd
 auth-user-pass
 client
 dev tun
@@ -219,7 +220,7 @@ echo '</ca>' >> /home/vps/public_html/client.ovpn
 
 cat > /home/vps/public_html/OpenVPN-Stunnel.ovpn <<-END
 
-# Created by wang zki
+# fR31Nd
 auth-user-pass
 client
 dev tun
