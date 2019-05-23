@@ -37,14 +37,14 @@ do
 		echo "Deleting the old files..."
 		sleep 2
 		clear
-		echo "Deleting : 2.39%"
+		echo "Deleting : 10.01%"
 		sleep 1
 		clear
-		echo "Deleting : 18.22%"
+		echo "Deleting : 20.22%"
 		cd /usr/local
 		sleep 1
 		clear
-		echo "Deleting : 44.07%"
+		echo "Deleting : 69.07%"
 		sleep 1
 		clear
 		echo "Deleting : 85.72%"
